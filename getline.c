@@ -109,7 +109,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 	int r;
 
 	if (input == 0)
-		fflush(stram);
+		fflush(stream);
 	else
 		return (-1);
 	input = 0;
