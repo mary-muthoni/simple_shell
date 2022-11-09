@@ -47,7 +47,7 @@ void help_alias(void)
 	msg = " an alias for each NAME whose VALUE is given. if NAME ";
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "is already an alias, replace its value with VALUE.\n";
-	write(STDOUT_FILENO, msg _strlen(msg));
+	write(STDOUT_FILENO, msg, _strlen(msg));
 }
 
 /**
