@@ -1,7 +1,7 @@
 #include "shell.h"
 
 int cant_open(char *file_path);
-int proc_file_commands(char *file_path, *exe_ret);
+int proc_file_commands(char *file_path, int *exe_ret);
 
 /**
  * cant_open - If the file doesn't exist or lacks proper permissions, print
@@ -54,7 +54,7 @@ int cant_open(char *file_path)
 int proc_file_commands(char *file_path, int *exe_ret)
 {
 	ssize_t file, b_read, i;
-	unigned int line_size = 0;
+	unsigned int line_size = 0;
 	unsigned int old_size = 120;
 	char *line, **args, **front;
 	char buffer[120];
@@ -67,7 +67,7 @@ int proc_file_commands(char *file_path, int *exe_ret)
 		*exe_ret = cant_open(file_path);
 		return (*exe_ret);
 	}
-	line = maloc(sizeof(char) * old_size);
+	line = malloc(sizeof(char) * old_size);
 	if (!line)
 		return (-1);
 	do {
@@ -76,7 +76,7 @@ int proc_file_commands(char *file_path, int *exe_ret)
 			return (*exe_ret);
 		buffer[b_read] = '\0';
 		line_size += b_read;
-		line = realloc(line, old_size, line_sie);
+		line = _realloc(line, old_size, line_size);
 		_strcat(line, buffer);
 		old_size = line_size;
 	} while (b_read);
@@ -92,7 +92,7 @@ int proc_file_commands(char *file_path, int *exe_ret)
 		}
 	}
 	variable_replacement(&line, exe_ret);
-	handle_line(&lin, line_size);
+	handle_line(&line, line_size);
 	args = _strtok(line, " ");
 	free(line);
 	if (!args)
