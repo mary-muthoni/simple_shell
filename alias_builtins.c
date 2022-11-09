@@ -68,12 +68,12 @@ void set_alias(char *var_name, char *value)
 {
 	alias_t *temp = aliases;
 	int len, j, k;
-	char *new value;
+	char *new_value;
 
 	*value = '\0';
 	value++;
-	len = _strlen(value) - strspn(value, "'\"");
-	new_value = maloc(sizeof(char) * (len + 1));
+	len = _strlen(value) - _strspn(value, "'\"");
+	new_value = malloc(sizeof(char) * (len + 1));
 	if (!new_value)
 		return;
 	for (j = 0, k = 0; value[j]; j++)
