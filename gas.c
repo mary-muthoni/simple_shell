@@ -10,8 +10,8 @@
 char *find_command(char *command)
 {
 	DIR *folder;
-	struct direct *entry;
-	char *cmd, comp, **str = malloc(sizeof(char) * 1024);
+	struct dirent *entry;
+	char *cmd, comp, **str  = malloc(sizeof(char) * 1024);
 	char **split = malloc(sizeof(char) * 1024);
 	int i;
 
